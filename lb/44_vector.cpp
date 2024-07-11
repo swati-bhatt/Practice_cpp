@@ -8,4 +8,14 @@ int main(){
 
     cout<<sizeof(newv)<<endl;
     cout<<newv.size()<<endl;
+
+    newv.push_back(1);
+    newv.push_back(2);
+    newv.push_back(3);
+    newv.push_back(4);
+
+    for(auto element : newv){
+        cout<<element<<" ";
+    }
+
 }

@@ -7,7 +7,7 @@ int main(){
   int arr[5][5];
   int brr[3][3]={
     {1,2,3},
-    {4,5,6},
+    {4,5,6,},
     {7,8,9}
     };
 
@@ -33,6 +33,14 @@ int main(){
     }
     cout<<endl;
     
+  }
+  cout<<"using auto: "<<endl;
+  // using auto
+  for(auto &row : brr){
+    for(auto col : row){
+      cout<<col<<" ";
+    }
+    cout<<endl;
   }
     
   return 0;

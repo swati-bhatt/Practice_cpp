@@ -4,9 +4,16 @@
 using namespace std;
 
 void print(vector <vector<int> > v){
-    for(int i=0; i<v.size(); i++){
-        for(int j=0; j<v[i].size(); j++){
-            cout<<v[i][j]<<" ";
+    // for(int i=0; i<v.size(); i++){
+    //     for(int j=0; j<v[i].size(); j++){
+    //         cout<<v[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+
+    for (auto & row : v){
+        for(auto col: row){
+            cout<<col<<" ";
         }
         cout<<endl;
     }
@@ -39,7 +46,7 @@ int main(){
     int rows, cols;
     cout<<"enter rows and cols: \n";
     cin>>rows>>cols;
-    vector <vector<int> > v3 (rows, vector<int>(cols,11));
+    vector <vector<int> > v3 (rows, vector<int>(cols, 12));
     print(v3);
   return 0;
 }
