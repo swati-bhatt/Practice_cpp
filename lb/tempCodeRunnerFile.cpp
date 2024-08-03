@@ -1,1 +1,1 @@
-return arr[end];
+2*power(n-1);
