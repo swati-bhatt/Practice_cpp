@@ -1,1 +1,1 @@
-2*power(n-1);
+swap(str[i],str[j]);
