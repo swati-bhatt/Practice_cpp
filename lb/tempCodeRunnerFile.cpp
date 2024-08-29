@@ -1,1 +1,1 @@
-swap(str[i],str[j]);
+fifth->next=sixth;
