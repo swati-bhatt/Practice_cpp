@@ -22,16 +22,6 @@ void print(Node * &head){
     cout<<endl;
 }
 
-void insertAthead(Node* &head, int data){
-    Node* newNode= new Node(data);
-    if(head->data==-1){
-        newNode=head;
-        return;
-    }
-    newNode->next=head;
-    head=newNode;   
-}
-
 // Node* sortLinkedList(Node* &head){
 //     if(head==NULL || head->next==NULL){
 //         return head;
@@ -74,35 +64,72 @@ Node* sortLinkedList(Node* &head){
     if(head==NULL || head->next==NULL ){
         return head;
     }
-    Node * temp0=new Node(-1);
-    Node * temp1=new Node(-1);
-    Node * temp2=new Node(-1);
+    Node * zerohead=new Node(-1);
+    Node* zerotail=zerohead;
+    Node * onehead=new Node(-1);
+    Node* onetail=onehead;
+    Node * twohead=new Node(-1);
+    Node* twotail=twohead;
     Node * curr= head;
+
     while(curr!=NULL){
         if(curr->data==0){
-            insertAthead(temp0, 0);
+           Node* temp=curr;
+           curr=curr->next;
+           temp->next=NULL;
+           zerotail->next=temp;
+           zerotail=temp;
         }
         else if(curr->data==1){
-            insertAthead(temp1, 1);
+            Node* temp= curr;
+            curr=curr->next;
+            temp->next=NULL;
+            onetail->next=temp;
+            onetail=temp;
         }
         else if(curr->data==2){
-            insertAthead(temp2, 2);
+            Node* temp=curr;
+            curr=curr->next;
+            temp->next=NULL;
+            twotail->next=temp;
+            twotail=temp;
         }
     }
-    if(temp0!=NULL){
-        if(temp1!=NULL){
-            if(temp2!=NULL){
-                temp0->next=temp1;
-            }
+
+    Node* temp= onehead;
+    onehead=onehead->next;
+    temp->next=NULL;
+    delete temp;
+
+    temp= twohead;
+    twohead=twohead->next;
+    temp->next=NULL;
+    delete temp;
+
+    if(onehead!=NULL){
+        zerotail->next=onehead;
+        if(twohead!=NULL){
+            onetail->next=twohead;
         }
     }
+    else{
+        if(twohead!=NULL){
+            zerotail->next=twohead;
+        }
+    }
+    temp=zerohead;
+    zerohead=zerohead->next;
+    temp->next=NULL;
+    delete temp;
+    return zerohead;
+    
 }
 
 int main(){
 
-    Node *head = new Node(0);
+    Node *head = new Node(1);
     Node *first = new Node(2);
-    Node *second = new Node(0);
+    Node *second = new Node(1);
     Node *third = new Node(2);
     Node *fourth = new Node(0);
     Node *fifth = new Node(2);
